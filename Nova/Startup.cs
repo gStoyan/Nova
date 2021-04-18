@@ -57,6 +57,10 @@ namespace Nova
                 app.UseHsts();
             }
             context.Database.EnsureCreated();
+            app.UseCors(x => x
+            .AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader());
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
