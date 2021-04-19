@@ -17,14 +17,23 @@ namespace Nova.Data.Models
         public int Id { get; set; }
         [Column("Name")]
         [Required]
-        [StringLength(100)]
         public string Name { get; set; }
-        [Column("Description")]
-        [Required]
-        [StringLength(100)]
-        public string Description { get; set; }
 
         [Column("Damage")]
         public int Damage { get; set; }
+
+        [Column("Armor")]
+        public int Armor { get; set; }
+
+        [Column("Range")]
+        public int Range { get; set; }
+
+        [Column("Description")]
+        [Required]
+        public string Description { get; set; }
+
+        public int NovaModelId { get; set; }
+
+        public NovaModel NovaModel { get; set; }
     }
 }

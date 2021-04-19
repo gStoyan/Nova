@@ -13,7 +13,6 @@ namespace Nova.Data.Models
         public int Id { get; set; }
         [Column("Name")]
         [Required]
-        [StringLength(100)]
         public string Name { get; set; }
         public List<Unit> Units { get; set; }
 

@@ -22,9 +22,12 @@ namespace Nova.Data.Models
         [Column("ArmorPoints")]
         public int ArmorPoints { get; set; }
 
-        [Column("HealethPoints")]
-        public int HealethPoints { get; set; }
+        [Column("Range")]
+        public int Range { get; set; }
 
+        [Column("HealthPoints")]
+        public int HealthPoints { get; set; }
         public List<Army> Armies { get; set; }
+        public List<Weapon> Weapons { get; set; }
     }
 }

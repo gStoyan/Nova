@@ -23,6 +23,11 @@ namespace Nova.Data.Models
         [Required]
         public string HealthPoints { get; set; }
 
+        [Column("Range")]
+        [Required]
+        public int Range { get; set; }
+
+        public string Description { get; set; }
         public int ArmyId { get; set; }
         public Army Army { get; set; }
 

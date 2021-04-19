@@ -31,8 +31,8 @@ namespace Nova
                 {
                     var context = services.GetRequiredService<NovaDbContext>();
                     // Initialize data for the game
-                    Initializer initializer = new Initializer(context);
-                    initializer.InitializeTexts();
+                    Initialiser initializer = new Initialiser(context);
+                    initializer.Initialise();
                 }
                 catch (Exception ex)
                 {
