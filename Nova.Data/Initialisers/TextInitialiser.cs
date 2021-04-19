@@ -16,6 +16,7 @@ namespace Nova.Data.Initialisers
             {
                 this.db.Texts.Add(new Text
                 {
+                    NovaModelId =1,
                     Title = "Einführung",
                     Content = "> Admiral A.Stukov: \n" +
                     "Guten Nacht, Nova. \n Wir haben schon drei Basen gewonnen. Du hast nur ein Mission und nur ein Nuke. Ich glaube du weßt, was du tun musst. " +
@@ -24,6 +25,7 @@ namespace Nova.Data.Initialisers
                 });
                 this.db.Texts.Add(new Text
                 {
+                    NovaModelId = 1,
                     Title = "Helfe",
                     Content = "> S.Grancharov Spiel Master \n" +
                     "Befor jede Mission musst du deine Waffen und dein Mannschaft wehlen. Jetzt gebe ich dir nur einige Optionen, aber später werde es " +
@@ -31,6 +33,7 @@ namespace Nova.Data.Initialisers
                 });
                 this.db.Texts.Add(new Text
                 {
+                    NovaModelId = 1,
                     Title = "Erster Morgen",
                     Content = "> 05:01 \n" +
                     "Du bist in der Landungsshiff. Das Land unter das Shiff ist trocken und leer. Zuers sollst du, mit der Situation in dem Sektor kennenlernen.\n" +

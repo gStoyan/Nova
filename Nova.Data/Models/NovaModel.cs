@@ -29,5 +29,6 @@ namespace Nova.Data.Models
         public int HealthPoints { get; set; }
         public List<Army> Armies { get; set; }
         public List<Weapon> Weapons { get; set; }
+        public List<Text> Texts { get; set; }
     }
 }

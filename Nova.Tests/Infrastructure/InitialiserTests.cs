@@ -34,6 +34,18 @@ namespace Nova.Tests.Infrastructure
             //Assert
             this.db.Texts.Count().Should().BeGreaterThan(0);
         }
+
+        [Fact]
+        public void WeaponInitialiser_Creates()
+        {
+            //Arrange
+            var weaponInitialiser = new WeaponInitialiser(this.db);
+            //Act
+            weaponInitialiser.Initialise();
+            //Assert
+            this.db.Weapons.Count().Should().BeGreaterThan(0);
+
+        }
         [Fact]
         public void Initialiser_Initialise_CallsAllClasses()
         {
@@ -45,5 +57,7 @@ namespace Nova.Tests.Infrastructure
             this.db.NovaModels.Count().Should().BeGreaterThan(0);
             this.db.Texts.Count().Should().BeGreaterThan(0);
         }
+
+       
     }
 }

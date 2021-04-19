@@ -21,11 +21,11 @@ namespace Nova.Data
         public DbSet<Army> Armies { get; set; }
         public DbSet<Text> Texts { get; set; }
         public DbSet<Option> Options { get; set; }
-        //protected override void OnConfiguring(DbContextOptionsBuilder options)
-        //{
-        //    options.UseSqlServer(ConnectionString);
-        //    base.OnConfiguring(options);
-        //}
+        protected override void OnConfiguring(DbContextOptionsBuilder options)
+        {
+            options.UseSqlServer(ConnectionString);
+            base.OnConfiguring(options);
+        }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             
@@ -51,10 +51,15 @@ namespace Nova.Data
                 .WithOne(a => a.NovaModel)
                 .HasForeignKey(a => a.NovaModelId);
 
+            builder.Entity<Text>()
+                .HasOne(t => t.NovaModel)
+                .WithMany(n => n.Texts)
+                .HasForeignKey(n => n.NovaModelId);
+
             builder.Entity<NovaModel>()
                 .HasMany(n => n.Weapons)
-                .WithOne(w => w.NovaModel)
-                .HasForeignKey(w => w.NovaModelId);
+                .WithOne(t => t.NovaModel)
+                .HasForeignKey(t => t.NovaModelId);
         }
     }
 }

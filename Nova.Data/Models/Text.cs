@@ -25,6 +25,11 @@ namespace Nova.Data.Models
 
         [Column("ImgUrl")]
         public string ImgUrl { get; set; }
+
+        public int NovaModelId { get; set; }
+
+        public NovaModel NovaModel { get; set; }
+
         public List<Option> Options { get; set; }
     }
 }
