@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Nova.Data.Initialisers
 {
-    public class WeaponInitialiser : IIsInitialiser
+    public class WeaponsInitialiser : IIsInitialiser
     {
         private readonly NovaDbContext db;
 
-        public WeaponInitialiser(NovaDbContext db)
+        public WeaponsInitialiser(NovaDbContext db)
         {
             this.db = db;
         }

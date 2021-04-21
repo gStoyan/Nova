@@ -15,20 +15,20 @@ namespace Nova.Tests.Infrastructure
 
         }
         [Fact]
-        public void NovaInitialiser_Creates()
+        public void NovaModelsInitialiser_Creates()
         {
             //Arrage
-            var novaInitialiser = new NovaModelInitialiser(this.db);
+            var novaInitialiser = new NovaModelsInitialiser(this.db);
             //Act
              novaInitialiser.Initialise();
             //Assert
             this.db.NovaModels.Count().Should().BeGreaterThan(0);
         }
         [Fact]
-        public void TextInitialiser_Creates()
+        public void TextsInitialiser_Creates()
         {
             //Arrange
-            var textInitialiser = new TextInitialiser(this.db);
+            var textInitialiser = new TextsInitialiser(this.db);
             //Act
             textInitialiser.Initialise();
             //Assert
@@ -36,16 +36,45 @@ namespace Nova.Tests.Infrastructure
         }
 
         [Fact]
-        public void WeaponInitialiser_Creates()
+        public void WeaponsInitialiser_Creates()
         {
             //Arrange
-            var weaponInitialiser = new WeaponInitialiser(this.db);
+            var weaponInitialiser = new WeaponsInitialiser(this.db);
             //Act
             weaponInitialiser.Initialise();
             //Assert
             this.db.Weapons.Count().Should().BeGreaterThan(0);
 
         }
+
+        [Fact]
+        public void OptionsInitialiser_Creates()
+        {
+            //Arrange
+            var optionsInitialiser = new OptionsInitialiser(this.db);
+            //Act
+            optionsInitialiser.Initialise();
+            //Assert
+            this.db.Options.Count().Should().BeGreaterThan(0);
+        }
+
+        [Fact]
+        public void UnitsInitialiser_Creates()
+        {
+            //Arrange
+            var unitsInitialiser = new UnitsInitialiser(this.db);
+            //Act
+            unitsInitialiser.Initialise();
+
+        }
+
+        [Fact]
+        public void ArmiesInitialiser_Creates()
+        {
+            //Arrange
+            var armiesInitialiser = new ArmiesInitialiser(this.db);
+        }
+
         [Fact]
         public void Initialiser_Initialise_CallsAllClasses()
         {

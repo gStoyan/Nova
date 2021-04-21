@@ -3,11 +3,11 @@ using System.Linq;
 
 namespace Nova.Data.Initialisers
 {
-    public class NovaModelInitialiser : IIsInitialiser
+    public class NovaModelsInitialiser : IIsInitialiser
     {
         private readonly NovaDbContext db;
 
-        public NovaModelInitialiser(NovaDbContext db)
+        public NovaModelsInitialiser(NovaDbContext db)
         {
             this.db = db;
         }

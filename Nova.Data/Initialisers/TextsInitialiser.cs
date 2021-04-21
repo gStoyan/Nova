@@ -3,10 +3,10 @@ using System.Linq;
 
 namespace Nova.Data.Initialisers
 {
-    public class TextInitialiser : IIsInitialiser
+    public class TextsInitialiser : IIsInitialiser
     {
         private readonly NovaDbContext db;
-        public TextInitialiser(NovaDbContext db)
+        public TextsInitialiser(NovaDbContext db)
         {
             this.db = db;
         }
@@ -34,7 +34,7 @@ namespace Nova.Data.Initialisers
                 this.db.Texts.Add(new Text
                 {
                     NovaModelId = 1,
-                    Title = "Erster Morgen",
+                    Title = "Die ersten Morgen",
                     Content = "> 05:01 \n" +
                     "Du bist in der Landungsshiff. Das Land unter das Shiff ist trocken und leer. Zuers sollst du, mit der Situation in dem Sektor kennenlernen.\n" +
                     "Glückligerweise, bist du nicht der einzige Geist.\n" +

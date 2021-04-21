@@ -21,7 +21,7 @@ namespace Nova.Data.Models
 
         [Column("HealthPoints")]
         [Required]
-        public string HealthPoints { get; set; }
+        public int HealthPoints { get; set; }
 
         [Column("Range")]
         [Required]

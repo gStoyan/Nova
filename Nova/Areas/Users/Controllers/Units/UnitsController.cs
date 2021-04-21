@@ -78,7 +78,6 @@ namespace Nova.Web.Areas.Users.Controllers.Units
 
         // POST: api/Units
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
- 
         [HttpPost]       
         public async Task PostUnit(string name) => await this.unitServices.CreateAsync(name);
 
