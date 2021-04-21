@@ -78,10 +78,9 @@ namespace Nova.Web.Areas.Users.Controllers.NovaModels
         [HttpPost]
         public async Task<ActionResult<NovaModel>> PostNovaModel(NovaModel novaModel)
         {
-            db.NovaModels.Add(novaModel);
-            await db.SaveChangesAsync();
+            await novaServices.CreateAsync(novaModel);
 
-            return CreatedAtAction("GetNovaModel", new { id = novaModel.Id }, novaModel);
+            return CreatedAtAction("GetNovaModel", new { id = novaModel.Name }, novaModel);
         }
 
         // DELETE: api/NovaModels/5

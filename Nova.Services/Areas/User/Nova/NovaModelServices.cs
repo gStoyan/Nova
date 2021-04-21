@@ -21,15 +21,24 @@ namespace Nova.Services.Areas.User.Nova
             _mapper = mapper;
         }
 
-        public async Task<NovaModelListingModel> GetLastNovaModel() => await this.db.NovaModels
-            .ProjectTo<NovaModelListingModel>(_mapper.ConfigurationProvider)
-            .OrderByDescending(n => n.Id)
-            .LastAsync();
 
         public async Task<ActionResult<IEnumerable<NovaModel>>> GetNovaModelsAsync() =>
             await this.db.NovaModels.ToListAsync();
 
         public async Task<ActionResult<NovaModel>> GetNovaModelAsync(int id) =>
             await this.db.NovaModels.Where(i => i.Id == id).FirstOrDefaultAsync();
+
+        public async Task CreateAsync(NovaModel model) {
+            await this.db.NovaModels.AddAsync(new NovaModel
+            {
+                Name = model.Name,
+                AttackPoints = model.AttackPoints,
+                ArmorPoints = model.ArmorPoints,
+                HealthPoints = model.HealthPoints,
+                Range = model.Range
+            });
+
+            await this.db.SaveChangesAsync();
+        }
     }
 }

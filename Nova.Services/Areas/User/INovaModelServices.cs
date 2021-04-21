@@ -9,8 +9,9 @@ namespace Nova.Services.Areas.User
 {
     public interface INovaModelServices
     {
-        Task<NovaModelListingModel> GetLastNovaModel();
         Task<ActionResult<IEnumerable<NovaModel>>> GetNovaModelsAsync();
         Task<ActionResult<NovaModel>> GetNovaModelAsync(int id);
+        Task CreateAsync(NovaModel model);
+
     }
 }

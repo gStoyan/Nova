@@ -12,6 +12,8 @@ using Nova.Web.Areas.User.Models;
 using Nova.Data;
 using Nova.Services.Model;
 using Nova.Web.Areas.Users.Controllers.NovaModels;
+using Nova.Data.Models;
+using System.Linq;
 
 namespace Nova.Tests.Users
 {
@@ -51,20 +53,23 @@ namespace Nova.Tests.Users
         }
 
         //Services
+
         [Fact]
-        public async Task NovaServices_ReturnsElement()
+        public void Service_CreatesAsync()
         {
-            //Arrange
-            this.db.NovaModels.Add(new Data.Models.NovaModel { Name = "Test" });
-            this.db.SaveChanges();
-            var novaModelsServices = new NovaModelServices(db, mapper);
-            //Act
-            var element = await novaModelsServices.GetLastNovaModel();
             //Assert
-            element.Name.Should().NotBe("");
+            var model = new NovaModel()
+            {
+                Name = "test",
+                ArmorPoints = 1,
+                AttackPoints = 1,
+                HealthPoints = 1,
+                Range = 1
+            };
+            //Act
+            services.CreateAsync(model);
+            //Assert
+            this.db.NovaModels.Any().Should().BeTrue();
         }
-
-      
-
     }
 }
