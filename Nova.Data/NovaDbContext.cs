@@ -21,11 +21,11 @@ namespace Nova.Data
         public DbSet<Army> Armies { get; set; }
         public DbSet<Text> Texts { get; set; }
         public DbSet<Option> Options { get; set; }
-        protected override void OnConfiguring(DbContextOptionsBuilder options)
-        {
-            options.UseSqlServer(ConnectionString);
-            base.OnConfiguring(options);
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder options)
+        //{
+        //    options.UseSqlServer(ConnectionString);
+        //    base.OnConfiguring(options);
+        //}
         protected override void OnModelCreating(ModelBuilder builder)
         {
             

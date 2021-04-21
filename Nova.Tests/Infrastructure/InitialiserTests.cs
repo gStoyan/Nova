@@ -65,7 +65,8 @@ namespace Nova.Tests.Infrastructure
             var unitsInitialiser = new UnitsInitialiser(this.db);
             //Act
             unitsInitialiser.Initialise();
-
+            //Assert
+            this.db.Units.Count().Should().BeGreaterThan(0);
         }
 
         [Fact]
@@ -73,6 +74,10 @@ namespace Nova.Tests.Infrastructure
         {
             //Arrange
             var armiesInitialiser = new ArmiesInitialiser(this.db);
+            //Act
+            armiesInitialiser.Initialise();
+            //Assert
+            this.db.Armies.Count().Should().BeGreaterThan(0);
         }
 
         [Fact]
@@ -85,8 +90,11 @@ namespace Nova.Tests.Infrastructure
             //Assert
             this.db.NovaModels.Count().Should().BeGreaterThan(0);
             this.db.Texts.Count().Should().BeGreaterThan(0);
-        }
+            this.db.Units.Count().Should().BeGreaterThan(0);
+            this.db.Armies.Count().Should().BeGreaterThan(0);
+            this.db.Options.Count().Should().BeGreaterThan(0);
+            this.db.Weapons.Count().Should().BeGreaterThan(0);
 
-       
+        }
     }
 }

@@ -29,7 +29,7 @@ namespace Nova.Data.Initialisers
                     Description = "Ein Man und ein Gewehr in seine Hände. Was kann schlecht gehen?",
                     Range = 3
                 });
-
+                this.db.SaveChanges();
             }
         }
     }
