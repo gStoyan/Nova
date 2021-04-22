@@ -1,11 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NovaModelComponent } from './nova-model/nova-model.component';
-import {NovaModelsComponent} from '../app/nova-models/nova-models.component';
+import { NovaModelPostFormComponent } from './NovaModel/nova-model-post-form/nova-model-post-form.component';
+import { NovaModelComponent } from './NovaModel/nova-model/nova-model.component';
+import {NovaModelsComponent} from './NovaModel/nova-models/nova-models.component';
+import { TextComponent } from './Texts/text/text.component';
 
 const routes: Routes = [
-  {path: '', component: NovaModelsComponent},
-  {path:'NovaModels:id',component:NovaModelComponent}
+  {path: 'NovaModels', component: NovaModelsComponent},
+  {path: 'NovaModel', component: NovaModelPostFormComponent},
+  {path:'NovaModels:id',component:NovaModelComponent},
+  {path:'Text:novaId',component:TextComponent}
 ];
 
 @NgModule({

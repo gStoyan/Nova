@@ -52,6 +52,20 @@ namespace Nova.Tests.Users
             Assert.IsType<OkObjectResult>(ok.Result);
         }
 
+        [Fact]
+        public void Post_Creates()
+        {
+            //Arrange
+            var nova = new NovaModel
+            {
+                Id = 1,
+                Name = "stoyan"
+            };
+            //Act
+            var result = this.controller.PostNovaModelAsync(nova);
+            //Assert
+            this.db.NovaModels.Any().Should().BeTrue();
+        }
         //Services
 
         [Fact]

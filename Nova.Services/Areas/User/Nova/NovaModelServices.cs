@@ -23,7 +23,7 @@ namespace Nova.Services.Areas.User.Nova
 
 
         public async Task<ActionResult<IEnumerable<NovaModel>>> GetNovaModelsAsync() =>
-            await this.db.NovaModels.ToListAsync();
+            await this.db.NovaModels.Include(n=>n.Texts).ToListAsync();
 
         public async Task<ActionResult<NovaModel>> GetNovaModelAsync(int id) =>
             await this.db.NovaModels.Where(i => i.Id == id).FirstOrDefaultAsync();

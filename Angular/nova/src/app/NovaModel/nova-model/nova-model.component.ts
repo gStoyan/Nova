@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 
-import {NovaModelService} from '../services/nova-model.service';
+import {NovaModelService} from '../../services/nova-model.service';
 
 @Component({
   selector: 'app-nova-model',
@@ -23,3 +23,4 @@ export class NovaModelComponent implements OnInit {
   }
 
 }
+ 

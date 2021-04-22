@@ -38,50 +38,22 @@ namespace Nova.Web.Areas.Users.Controllers.NovaModels
         public async Task<ActionResult<NovaModel>> GetNovaModelAsync(int id)
         {
             var novaModel = await this.novaServices.GetNovaModelAsync(id);
-
             return Ok(novaModel);
         }
 
         // PUT: api/NovaModels/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutNovaModel(int id, NovaModel novaModel)
+        public async Task PostNovaModelAsync( NovaModel novaModel)
         {
-            if (id != novaModel.Id)
-            {
-                return BadRequest();
-            }
-
-            db.Entry(novaModel).State = EntityState.Modified;
-
-            try
-            {
-                await db.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!NovaModelExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
+            
         }
 
         // POST: api/NovaModels
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<NovaModel>> PostNovaModel(NovaModel novaModel)
-        {
+        public async Task PostNovaModel(NovaModel novaModel) =>
             await novaServices.CreateAsync(novaModel);
-
-            return CreatedAtAction("GetNovaModel", new { id = novaModel.Name }, novaModel);
-        }
 
         // DELETE: api/NovaModels/5
         [HttpDelete("{id}")]
