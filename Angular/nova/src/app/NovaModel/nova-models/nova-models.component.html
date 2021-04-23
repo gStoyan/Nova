@@ -1,8 +1,10 @@
+
+
 <div *ngIf = "novaModels">
 <ul class="list-group">
   <div *ngFor = "let novaModel of novaModels.value">
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-   <a routerLink= "NovaModel/novaModel.id">{{novaModel.name}}</a>
+  <li  class="list-group-item d-flex justify-content-between align-items-center">
+   <a routerLink= "/NovaModel/{{novaModel.id}}">{{novaModel.name}}</a>
     <span class="">Das Erste seiner Art</span>
     <span  class="badge badge-primary badge-pill">{{novaModel.texts.pop().title}}</span>
   </li>

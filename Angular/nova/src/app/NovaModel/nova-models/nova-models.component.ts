@@ -22,11 +22,4 @@ export class NovaModelsComponent implements OnInit {
           console.log(data)
         })
   }
-  getText(novaId: number){
-    this.textServices.GetLastNovaText(novaId)
-        .subscribe(data=>{
-          this.textModel = data
-          console.log(data)
-        })
-  }
 }

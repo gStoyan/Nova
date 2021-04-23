@@ -8,8 +8,8 @@ import { TextComponent } from './Texts/text/text.component';
 const routes: Routes = [
   {path: 'NovaModels', component: NovaModelsComponent},
   {path: 'NovaModel', component: NovaModelPostFormComponent},
-  {path:'NovaModels:id',component:NovaModelComponent},
-  {path:'Text:novaId',component:TextComponent}
+  {path:'NovaModel/:id',component:NovaModelComponent},
+  {path:'Text/:novaId',component:TextComponent}
 ];
 
 @NgModule({
