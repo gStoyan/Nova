@@ -14,11 +14,11 @@ namespace Nova.Services.Areas.User.Nova
     public class NovaModelServices : INovaModelServices
     {
         private NovaDbContext db;
-        private readonly IMapper _mapper;
-        public NovaModelServices(NovaDbContext db, IMapper mapper)
+        private ITextServices textServices;
+        public NovaModelServices(NovaDbContext db,ITextServices textServices)
         {
+            this.textServices = textServices;
             this.db = db;
-            _mapper = mapper;
         }
 
 
@@ -29,16 +29,18 @@ namespace Nova.Services.Areas.User.Nova
             await this.db.NovaModels.Where(i => i.Id == id).FirstOrDefaultAsync();
 
         public async Task CreateAsync(NovaModel model) {
-            await this.db.NovaModels.AddAsync(new NovaModel
+            var newNova = new NovaModel
             {
                 Name = model.Name,
                 AttackPoints = model.AttackPoints,
                 ArmorPoints = model.ArmorPoints,
                 HealthPoints = model.HealthPoints,
-                Range = model.Range
-            });
-
+                Range = model.Range,
+            };
+            await this.db.NovaModels.AddAsync(newNova);
             await this.db.SaveChangesAsync();
+            var novaId = this.db.NovaModels.Where(n => n.Name == model.Name).First().Id;
+            await this.textServices.CreateNewFirstTextAsync(novaId);
         }
     }
 }

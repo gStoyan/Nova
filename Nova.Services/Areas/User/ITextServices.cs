@@ -8,5 +8,9 @@ namespace Nova.Services.Areas.User
     public interface ITextServices
     {
         Task<ActionResult<Text>> GetNovaLastTextAsync(int novaId);
+
+        Task<Text> GetFirstTextAsync();
+
+        Task CreateNewFirstTextAsync(int novaId);
     }
 }

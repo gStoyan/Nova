@@ -19,7 +19,7 @@ namespace Nova.Data.Initialisers
             {
                 this.db.Options.Add(new Option
                 {
-                    Content = "Frag was ist sein Name.",
+                    Content = "Sag ihm,dass er soll seine Aufträge weiter folgen.",
                     TextId = dieErstenMorgenId
                 });
                 this.db.Options.Add(new Option

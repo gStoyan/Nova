@@ -14,8 +14,9 @@ namespace Nova.Web.Areas.Users.Controllers.NovaModels
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class NovaModelsController : ControllerBase
+    public class NovaModelsController : BaseApiController
     {
+        private const string Entity_Name = "product";
         private readonly NovaDbContext db;
         private INovaModelServices novaServices;
 
@@ -27,10 +28,20 @@ namespace Nova.Web.Areas.Users.Controllers.NovaModels
 
         // GET: api/NovaModels
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<NovaModel>>> GetNovaModelsAsync()
+        public async Task<IActionResult> GetNovaModelsAsync()
         {
-            var novaModels = await this.novaServices.GetNovaModelsAsync();
-            return Ok(novaModels);
+            IActionResult result = null;
+            try
+            {
+                var novaModels = await this.novaServices.GetNovaModelsAsync();
+                result =  Ok(novaModels);
+            }
+            catch (Exception ex)
+            {
+                result = HandleException(ex, "Exception trying to get all " 
+                                            + Entity_Name + "s");
+            }
+            return result;
         }
 
         // GET: api/NovaModels/5
@@ -41,18 +52,12 @@ namespace Nova.Web.Areas.Users.Controllers.NovaModels
             return Ok(novaModel);
         }
 
-        // PUT: api/NovaModels/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task PostNovaModelAsync( NovaModel novaModel)
-        {
-            
-        }
+        
 
         // POST: api/NovaModels
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task PostNovaModel(NovaModel novaModel) =>
+        public async Task PostNovaModelAsync(NovaModel novaModel) =>
             await novaServices.CreateAsync(novaModel);
 
         // DELETE: api/NovaModels/5
